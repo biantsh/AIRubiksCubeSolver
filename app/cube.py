@@ -62,7 +62,6 @@ class CubeInteractor:
 
     def register_face(self, colors: list[Color]) -> None:
         self.face_debouncer.update(colors)
-
         if not self.face_debouncer.confirmed:
             return
 

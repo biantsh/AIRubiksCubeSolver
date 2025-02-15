@@ -8,6 +8,15 @@ class Detection:
         self.position = position
         self.score = score
 
+    def get_position(self, frame: np.ndarray) -> tuple[int, ...]:
+        top, left, bot, right = self.position
+        height, width, _ = frame.shape
+
+        top, bot = int(top * height), int(bot * height)
+        left, right = int(left * width), int(right * width)
+
+        return top, left, bot, right
+
     def draw(self, frame: np.ndarray) -> None:
         top, left, bot, right = self.position
         height, width, _ = frame.shape
