@@ -16,10 +16,12 @@ class WebcamInteractor(cv.VideoCapture):
 
     def get_frame(self) -> np.ndarray:
         _, frame = self.read()
-        return cv.flip(frame, 1)
+        return frame
 
     def show_frame(self, frame: np.ndarray) -> None:
         frame = cv.resize(frame, self.display_size)
+        frame = cv.flip(frame, 1)
+
         cv.imshow(__appname__, frame)
 
     def await_input(self) -> None:

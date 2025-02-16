@@ -38,7 +38,7 @@ def main(detector_path: str, classifier_path: str) -> None:
 
         try:
             virtual_cube = get_virtual_cube(colors, (bot - top))
-            frame[top:bot, right:right + (bot - top)] = virtual_cube
+            frame[top:bot, left - (bot - top):left] = virtual_cube
         except ValueError:
             pass  # Out of bounds
 
