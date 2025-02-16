@@ -18,7 +18,7 @@ def main(dataset_path: str, output_path: str) -> None:
     target = np.array([COLORS.index(color) for color in data['color']])
 
     x_train, x_test, y_train, y_test = (
-        train_test_split(features, target, test_size=0.01))
+        train_test_split(features, target, test_size=0.1))
     model = KNeighborsClassifier(n_neighbors = 3)
 
     model.fit(x_train, y_train)
